@@ -1,0 +1,12 @@
+## Interface: 120005
+## Title: MiniFocus
+## Notes: Enhances existing quick-focus click actions with a raid marker and focus cast audio.
+## Author: MiniFocus
+## Version: 1.0.0
+## OptionalDeps: NDui
+## SavedVariables: MiniFocusDB
+
+Locales\enUS.lua
+Locales\zhCN.lua
+MiniFocus.lua
+Adapters\NDui.lua
