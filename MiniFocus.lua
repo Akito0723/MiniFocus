@@ -8,6 +8,7 @@ local MARKER_ICON_FORMAT = "|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d
 local defaults = {
 	enableMarker = true,
 	markerIcon = 3,
+	preserveExistingMarker = false,
 	enableCastAudio = true,
 	enableInterruptCheck = false,
 }
@@ -100,6 +101,25 @@ local function RegisterSettings()
 		L.MarkerIconTooltip
 	)
 	markerIconInitializer:SetParentInitializer(markerInitializer)
+
+	local preserveExistingMarkerSetting = Settings.RegisterAddOnSetting(
+		category,
+		"MINIFOCUS_PRESERVE_EXISTING_MARKER",
+		"preserveExistingMarker",
+		MiniFocusDB,
+		Settings.VarType.Boolean,
+		L.PreserveExistingMarker,
+		defaults.preserveExistingMarker
+	)
+	preserveExistingMarkerSetting:SetValueChangedCallback(function(_, value)
+		Dispatch("OnSettingChanged", "preserveExistingMarker", value)
+	end)
+	local preserveExistingMarkerInitializer = Settings.CreateCheckbox(
+		category,
+		preserveExistingMarkerSetting,
+		L.PreserveExistingMarkerTooltip
+	)
+	preserveExistingMarkerInitializer:SetParentInitializer(markerInitializer)
 
 	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L.AudioSection))
 

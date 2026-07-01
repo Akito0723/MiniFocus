@@ -2,7 +2,7 @@
 ## Title: MiniFocus
 ## Notes: Enhances existing quick-focus click actions with a raid marker and focus cast audio.
 ## Author: MiniFocus
-## Version: 1.0.1
+## Version: 1.0.2
 ## OptionalDeps: NDui
 ## SavedVariables: MiniFocusDB
 

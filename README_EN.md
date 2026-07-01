@@ -12,6 +12,7 @@ It currently supports **NDui's Shift+Left Click quick focus**. MiniFocus does no
 
 - Preserves NDui's existing Shift+Left Click focus action
 - Adds the selected raid marker only to hostile focus targets
+- Can preserve an existing target marker instead of overwriting it
 - Displays Blizzard raid-marker textures directly in the settings dropdown
 - Plays a voice alert when a hostile focus starts a normal cast
 - Provides an experimental interruptibility check that can suppress alerts for casts known to be uninterruptible
@@ -30,6 +31,7 @@ Available settings:
 
 - **Marker > Enable**: Enables hostile-focus raid markers; enabled by default
 - **Marker Icon**: Selects Star, Circle, Diamond, Triangle, Moon, Square, Cross, or Skull; Diamond by default
+- **Preserve Existing Marker**: Does not overwrite the target's existing marker when enabled; disabled by default
 - **Voice Alert > Enable**: Plays a voice alert when a hostile focus starts a normal cast; enabled by default
 - **Voice Alert > Interrupt Check**: Experimental; suppresses the alert when the cast is known to be uninterruptible; disabled by default
 

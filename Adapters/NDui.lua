@@ -21,17 +21,25 @@ local function GetMarkerIcon()
 	return math.max(1, math.min(8, math.floor(markerIcon)))
 end
 
+local function GetMarkerArgument()
+	local markerIcon = GetMarkerIcon()
+	if MiniFocus:GetSetting("preserveExistingMarker") then
+		return "~" .. markerIcon
+	end
+	return tostring(markerIcon)
+end
+
 local function GetUnitMarkerMacro()
 	return string.format(
-		"/focus [@mouseover,exists]\n/tm [@mouseover,harm,exists] %d",
-		GetMarkerIcon()
+		"/focus [@mouseover,exists]\n/tm [@mouseover,harm,exists] %s",
+		GetMarkerArgument()
 	)
 end
 
 local function GetGlobalMarkerMacro()
 	return string.format(
-		"/focus mouseover\n/tm [@mouseover,harm,exists] %d",
-		GetMarkerIcon()
+		"/focus mouseover\n/tm [@mouseover,harm,exists] %s",
+		GetMarkerArgument()
 	)
 end
 
@@ -176,7 +184,7 @@ function adapter:OnGroupUpdate()
 end
 
 function adapter:OnSettingChanged(key, value)
-	if key == "markerIcon" then
+	if key == "markerIcon" or key == "preserveExistingMarker" then
 		if MiniFocus:GetSetting("enableMarker") then
 			self:UpdateMarkerMacros()
 		end
